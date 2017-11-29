@@ -1,0 +1,26 @@
+<script type="text/javascript" src="jquery.js"></script>
+
+<form (submit)="onSearch()">
+    Enter Location:
+    <input 
+    type="text" 
+    name="location" 
+    required 
+    minlength="1" 
+    [(ngModel)]="location" 
+    #err='ngModel'>
+    <p *ngIf="!err.valid">Location must not be empty</p>
+    <br>
+
+  <input *ngIf="!(err.valid)" disabled=true type="submit" value="Submit">
+  <input *ngIf="err.valid" type="submit" value="Submit" id="submit_btn">
+</form>
+
+<div id="info">
+<h1>{{ location }}</h1>
+<p>Humidity: {{ humidity }}</p>
+<p>Temperature (Average): {{ tempAvg }}</p>
+<p>Temperature (High): {{ tempHigh }}</p>
+<p>Temperature (Low): {{ tempLow }}</p>
+<p>Condition: {{ condition }}</p>
+</div>
